@@ -1,15 +1,58 @@
+import { lusitana } from '@/app/ui/fonts';
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/app/ui/button';
-import Pagination from '@/app/ui/invoices/pagination';
-import { CheckIcon, XCircleIcon } from '@heroicons/react/24/outline';
 
 export default function Page() {
   return (
-    <div className="h-full w-full items-center justify-center bg-white p-5">
-      <div className="flex h-28 w-auto flex-row justify-between">
-        <div className="h-12 items-center justify-center">
+    <>
+    <div className="bg-bggede bg-cover bg-center flex h-screen w-screen flex-col justify-center px-5 py-5 md:px-20 md:py-5 md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
+      <div className="flex h-full w-full flex-col items-center rounded-md bg-slate-500 md:w-[30%] p-5">
+        <h1
+          className={`${lusitana.className} mb-3 text-base font-bold uppercase md:text-2xl text-white`}
+        >
+          Login DLI
+        </h1>
+        <form>
+          <div className="h-12 items-center justify-center">
+            <label
+              htmlFor="username"
+              className="mb-2 block text-sm font-bold uppercase text-white"
+            >
+              Username
+            </label>
+            <div className="relative mt-2 rounded-md">
+              <div className="relative">
+                <input
+                  id="username"
+                  name="username"
+                  placeholder="Masukan Username"
+                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mt-7 h-12 items-center justify-center">
+            <label
+              htmlFor="password"
+              className="mb-2 block text-sm font-bold uppercase text-white"
+            >
+              Password
+            </label>
+            <div className="relative mt-2 rounded-md">
+              <div className="relative">
+                <input
+                  id="password"
+                  name="password"
+                  placeholder="Masukan Password"
+                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mt-7 h-12 items-center justify-center">
           <label
             htmlFor="customer"
-            className="mb-2 block text-sm font-bold uppercase"
+            className="mb-2 block text-sm font-bold uppercase text-white"
           >
             agen / cabang
           </label>
@@ -601,211 +644,26 @@ export default function Page() {
             </select>
           </div>
         </div>
-        <div className="h-12 items-center justify-center">
-          <fieldset>
-            <legend className="mb-2 block text-sm font-bold uppercase">
-              aktif
-            </legend>
-            <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
-              <div className="flex gap-4">
-                <div className="flex items-center">
-                  <input
-                    id="pending"
-                    name="status"
-                    type="radio"
-                    value="pending"
-                    className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
-                  />
-                  <label
-                    htmlFor="pending"
-                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium uppercase text-white"
-                  >
-                    ya
-                  </label>
-                </div>
-                <div className="flex items-center">
-                  <input
-                    id="paid"
-                    name="status"
-                    type="radio"
-                    value="paid"
-                    className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
-                  />
-                  <label
-                    htmlFor="paid"
-                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-red-500 px-3 py-1.5 text-xs font-medium uppercase text-white"
-                  >
-                    tidak
-                  </label>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-        <div className="h-12 items-center justify-center">
-          <label
-            htmlFor="customername"
-            className="mb-2 block text-sm font-bold font-medium uppercase"
-          >
-            Nama Customer
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="customername"
-                name="customername"
-                placeholder="Masukan Nama Customer"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
-          </div>
-        </div>
+          <LoginButton />
+        </form>
       </div>
-      <div className="flex h-28 w-auto flex-row items-center justify-between">
-        <Button className="bg-green-500">Refresh</Button>
-        <Button className="bg-red-500">Keluar</Button>
+      <div className="mx-1.5 my-1.5 flex h-12 w-full flex-row items-center justify-center rounded-md bg-white p-5">
+
       </div>
-      <table className="mt-10 table min-w-full border-collapse border border-slate-400 text-gray-900">
-        <thead className="rounded-lg bg-blue-500 text-left text-sm font-normal">
-          <tr>
-            <th
-              scope="col"
-              className="border border-slate-300 px-4 py-5 font-medium sm:pl-6"
-            >
-              Kode
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Nama
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Telp 1
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Telp 2
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Fax 1
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Fax 2
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Contact Person
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium"
-            >
-              Aktif
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white">
-          <tr key="1" className="w-full">
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-          </tr>
-          <tr
-            key="2"
-            className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
-          >
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-          </tr>
-          <tr
-            key="3"
-            className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
-          >
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
-              contoh
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      {/* <Pagination currentPage={1} totalPages={10} /> */}
     </div>
+    <div className="relative flex overflow-x-hidden">
+  <div className="animate-marquee whitespace-nowrap">
+    <span className="mx-4 text-4xl"><b>*Info Update :</b> Anda Masuk Dalam Web Cargo PT.DAKOTA LOGISTIK INDONESIA</span>
+  </div>
+</div>
+  </>
+  );
+}
+
+function LoginButton() {
+  return (
+    <Button className="mt-7 w-full">
+      Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+    </Button>
   );
 }

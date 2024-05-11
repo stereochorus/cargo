@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        marquee: 'marquee 15s linear infinite',
+      },
+      backgroundImage: {
+        'bggede': "url('/auth/login/bggede.png')",
+      },
       gridTemplateColumns: {
         '13': 'repeat(13, minmax(0, 1fr))',
       },
@@ -20,6 +26,10 @@ const config: Config = {
       },
     },
     keyframes: {
+      marquee: {
+        '0%': { transform: 'translateX(200%)' },
+        '100%': { transform: 'translateX(-100%)' },
+      },
       shimmer: {
         '100%': {
           transform: 'translateX(100%)',
