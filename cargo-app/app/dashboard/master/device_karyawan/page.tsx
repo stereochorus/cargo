@@ -6,73 +6,74 @@ export default function Page() {
   return (
     <div className="h-full w-full items-center justify-center bg-white p-5">
       <div className='h-20 w-full justify-center items-center border-b-2 border-green-500 mb-10'>
-        <p className='text-green-500 font-bold text-xl md:text-4xl text-center uppercase'>master agen / cabang / counter</p>
+        <p className='text-green-500 font-bold text-xl md:text-4xl text-center uppercase'>master device karyawan</p>
       </div>
-      <div className="flex mb-10 w-full flex-col justify-center md:flex-row md:justify-start">
+      <div className="flex mb-10 w-full md:w-[50%] flex-col justify-start">
         <div className="h-12 items-center justify-center">
+          <label
+            htmlFor="namakaryawan"
+            className="mb-2 block text-sm font-bold uppercase"
+          >
+            nama karyawan
+          </label>
+          <div className="relative mt-2 rounded-md">
+            <div className="relative">
+              <input
+                id="namakaryawan"
+                name="namakaryawan"
+                placeholder="Masukan Nama Karyawan"
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="mt-12 h-12 items-center justify-center">
           <fieldset>
             <legend className="mb-2 block text-sm font-bold uppercase">
-              aktif
+              karyawan
             </legend>
             <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
               <div className="flex gap-4">
                 <div className="flex items-center">
                   <input
-                    id="pending"
-                    name="status"
+                    id="karyawanharian"
+                    name="tipekaryawan"
                     type="radio"
-                    value="pending"
+                    value="karyawanharian"
                     className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   />
                   <label
-                    htmlFor="pending"
-                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium uppercase text-white"
+                    htmlFor="karyawanharian"
+                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium uppercase text-white uppercase"
                   >
-                    ya
+                    harian
                   </label>
                 </div>
                 <div className="flex items-center">
                   <input
-                    id="paid"
-                    name="status"
+                    id="karyawankontrak"
+                    name="tipekaryawan"
                     type="radio"
-                    value="paid"
+                    value="karyawankontrak"
                     className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   />
                   <label
                     htmlFor="paid"
-                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-red-500 px-3 py-1.5 text-xs font-medium uppercase text-white"
+                    className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-red-500 px-3 py-1.5 text-xs font-medium uppercase text-white uppercase"
                   >
-                    tidak
+                    kontrak/tetap
                   </label>
                 </div>
               </div>
             </div>
           </fieldset>
         </div>
-        <div className="md:pl-20 md:mt-0 mt-12 h-12 items-center justify-center">
-          <label
-            htmlFor="customername"
-            className="mb-2 block text-sm font-bold uppercase"
-          >
-            nama customer
-          </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="customername"
-                name="customername"
-                placeholder="Masukan Nama Customer"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              />
-            </div>
-          </div>
-        </div>
       </div>
-      <div className="flex flex-col justify-center md:h-28 w-auto md:flex-row items-center md:justify-between">
-        <div className='flex flex-col w-full md:w-40 md:flex-row items-center justify-center'>
+      <div className="flex flex-col justify-center w-full items-center md:h-28 md:flex-row md:justify-between">
+        <div className='flex flex-col w-full md:flex-row items-center'>
         <Button className="bg-green-500 justify-center w-full md:w-20 capitalize">Refresh</Button>
-        <Button className="bg-blue-500 justify-center mt-2 w-full  md:w-20 md:ml-5 md:mt-0 capitalize">Tambah</Button>
+        <Button className="bg-yellow-500 justify-center mt-2 w-full md:w-36 md:ml-5 md:mt-0 capitalize">WhatsApp Link</Button>
+        <Button className="bg-gray-500 justify-center mt-2 w-full md:w-52 md:ml-5 md:mt-0 capitalize">Cetak Data Raw Absensi</Button>
         </div>
         <Button className="bg-red-500 w-full mt-2 md:mt-0 md:w-20 justify-center capitalize">Keluar</Button>
       </div>
@@ -84,80 +85,44 @@ export default function Page() {
               scope="col"
               className="border border-slate-300 px-4 py-5 font-medium sm:pl-6 uppercase"
             >
-              kode agen
+              nip
             </th>
             <th
               scope="col"
               className="border border-slate-300 px-3 py-5 font-medium uppercase"
             >
-              nama agen
+            nama
             </th>
             <th
               scope="col"
               className="border border-slate-300 px-3 py-5 font-medium uppercase"
             >
-              telp 1
+              imei1
             </th>
             <th
               scope="col"
               className="border border-slate-300 px-3 py-5 font-medium uppercase"
             >
-              telp 2
+              imei2
             </th>
             <th
               scope="col"
               className="border border-slate-300 px-3 py-5 font-medium uppercase"
             >
-              alamat
+              simcard1
             </th>
             <th
               scope="col"
               className="border border-slate-300 px-3 py-5 font-medium uppercase"
             >
-              kota
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium uppercase"
-            >
-              penanggung jawab
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium uppercase"
-            >
-              dibawah cabang/pusat
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium uppercase"
-            >
-              aktif
-            </th>
-            <th
-              scope="col"
-              className="border border-slate-300 px-3 py-5 font-medium uppercase"
-            >
-              npwp
+              simcard2
             </th>
           </tr>
         </thead>
         <tbody className="bg-white">
           <tr key="1" className="w-full">
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
+            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
+            <Button className="bg-sky-500 w-full mt-2 md:mt-0 justify-center">453345345</Button>
             </td>
             <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
               contoh
@@ -179,20 +144,8 @@ export default function Page() {
             key="2"
             className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
           >
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
+            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
+            <Button className="bg-sky-500 w-full mt-2 md:mt-0 justify-center">453345345</Button>
             </td>
             <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
               contoh
@@ -214,20 +167,8 @@ export default function Page() {
             key="3"
             className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
           >
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
-            </td>
-            <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
-              contoh
+            <td className="whitespace-nowrap border border-slate-300 px-3 py-3">
+            <Button className="bg-sky-500 w-full mt-2 md:mt-0 justify-center">453345345</Button>
             </td>
             <td className="whitespace-nowrap border border-slate-300 px-3 py-3 capitalize">
               contoh
